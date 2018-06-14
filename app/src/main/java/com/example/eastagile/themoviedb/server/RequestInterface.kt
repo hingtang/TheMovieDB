@@ -10,4 +10,7 @@ interface RequestInterface{
     @GET("discover/movie")
     fun getPopularMovies(@Query("api_key") apiKey: String): Observable<GetMovieListReponse>
 
+    @GET("movie/top_rated")
+    fun getMostRatedMovies(@Query("api_key")apiKey: String):Observable<GetMovieListReponse>
+
 }

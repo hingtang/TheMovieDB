@@ -26,6 +26,6 @@ class AppModule {
     @Singleton
     @Provides
     @Named("MostRatedPresenter")
-    fun provideMostRatedPresenter(): BaseListContract.Presenter = MostRatedPresenter()
+    fun provideMostRatedPresenter(requestInterface: RequestInterface): BaseListContract.Presenter = MostRatedPresenter(requestInterface)
 
 }

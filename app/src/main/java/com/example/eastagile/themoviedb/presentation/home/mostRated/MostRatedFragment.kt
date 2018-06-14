@@ -26,8 +26,12 @@ class MostRatedFragment : BaseListFragment(), Injectable {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         presenter.attachView(this)
-
         return super.onCreateView(inflater, container, savedInstanceState)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        presenter.getMovieList()
     }
 
 }

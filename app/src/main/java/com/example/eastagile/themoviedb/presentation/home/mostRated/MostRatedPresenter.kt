@@ -1,21 +1,35 @@
 package com.example.eastagile.themoviedb.presentation.home.mostRated
 
-import com.example.eastagile.themoviedb.data.Movie
 import com.example.eastagile.themoviedb.presentation.home.base.BaseListContract
+import com.example.eastagile.themoviedb.server.RequestInterface
+import com.example.eastagile.themoviedb.utils.AppConstant
+import io.reactivex.Scheduler
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.schedulers.Schedulers
 
-class MostRatedPresenter : BaseListContract.Presenter {
+class MostRatedPresenter(private val requestInterface: RequestInterface,
+                         private val ioScheduler: Scheduler = Schedulers.io(),
+                         private val uiScheduler: Scheduler = AndroidSchedulers.mainThread())
+    : BaseListContract.Presenter {
+
+    private val compositeDisposable: CompositeDisposable = CompositeDisposable()
 
     lateinit var view: BaseListContract.View
 
-//    override fun getMovieList(): ArrayList<String> {
-//        view.showProgressBar()
-//        Thread.sleep(2000)
-//        view.hideProgressBar()
-//        return mockMovie()
-//    }
-
     override fun getMovieList() {
-
+        compositeDisposable.add(requestInterface.getMostRatedMovies(AppConstant.API_KEY)
+                .subscribeOn(ioScheduler)
+                .observeOn(uiScheduler)
+                .subscribe({ response ->
+                    view.setMovieList(response.results)
+                }, { error ->
+                    view.hideProgressBar()
+                    view.showErrorDialog()
+                    error.printStackTrace()
+                }, {
+                    view.hideProgressBar()
+                }))
     }
 
     override fun attachView(view: BaseListContract.View) {
@@ -23,13 +37,6 @@ class MostRatedPresenter : BaseListContract.Presenter {
     }
 
     override fun detachView() {
-    }
-
-    private fun mockMovie(): ArrayList<String> {
-        val movieList = ArrayList<String>()
-        for (i in 1 .. 10){
-            movieList += "Most Rated Movie $i"
-        }
-        return movieList
+        compositeDisposable.dispose()
     }
 }
