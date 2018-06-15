@@ -1,4 +1,4 @@
-package com.example.eastagile.themoviedb.presentation.home.myFavourite
+package com.example.eastagile.themoviedb.presentation.home.myfavourite
 
 import android.os.Bundle
 import android.support.v4.app.Fragment

@@ -17,28 +17,22 @@
         android:lines="1"
         style="@style/TextStyle"/>
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@id/tvMovieName"
-        android:layout_margin="@dimen/margin_8">
-
         <ImageView
             android:id="@+id/imgvMovie"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_margin="@dimen/margin_8"
             android:scaleType="fitCenter"/>
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/fab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="right|top"
-            android:layout_marginTop="@dimen/margin_8"
-            android:layout_marginRight="@dimen/margin_8"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="@dimen/margin_16"
+            android:layout_marginRight="@dimen/margin_16"
             android:src="@drawable/ic_not_favourite"
             app:backgroundTint="@android:color/white"/>
-
-    </FrameLayout>
 
 </RelativeLayout>

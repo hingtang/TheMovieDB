@@ -19,7 +19,7 @@ class MostRatedPresenter(private val requestInterface: RequestInterface,
     lateinit var view: BaseListContract.View
 
     override fun getMovieList() {
-        compositeDisposable.add(requestInterface.getMostRatedMovies(AppConstant.API_KEY)
+        compositeDisposable.add(requestInterface.getMostRatedMovies()
                 .subscribeOn(ioScheduler)
                 .observeOn(uiScheduler)
                 .subscribe({ response ->

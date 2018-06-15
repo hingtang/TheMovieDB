@@ -40,11 +40,11 @@ class DetailPresenterTest{
 
     @Test
     fun `should return a trailer list when get popular movie`() {
-        whenever(requestInterface.getTrailers(MOVIE_ID, AppConstant.API_KEY))
+        whenever(requestInterface.getTrailers(MOVIE_ID))
                 .thenReturn(Observable.just(GetTrailerListResponse(1,
                         ArrayList())))
 
-        val response = requestInterface.getTrailers(MOVIE_ID, AppConstant.API_KEY)
+        val response = requestInterface.getTrailers(MOVIE_ID)
         val testObservable = TestObserver.create<GetTrailerListResponse>()
         response.subscribe(testObservable)
         testObservable.assertComplete()

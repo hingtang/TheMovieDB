@@ -1,10 +1,8 @@
 package com.example.eastagile.themoviedb.presentation.home.mostRated
 
-import com.example.eastagile.themoviedb.data.MoviesGateway
 import com.example.eastagile.themoviedb.presentation.home.base.BaseListContract
 import com.example.eastagile.themoviedb.server.RequestInterface
 import com.example.eastagile.themoviedb.server.reponses.GetMovieListReponse
-import com.example.eastagile.themoviedb.utils.AppConstant
 import com.nhaarman.mockito_kotlin.mock
 import com.nhaarman.mockito_kotlin.whenever
 import io.reactivex.Observable
@@ -17,12 +15,10 @@ class MostRatedPresenterTest{
 
     private val view = mock<BaseListContract.View>()
 
-    private val moviesGateway = mock<MoviesGateway>()
-
     private val requestInterface = mock<RequestInterface>()
 
-    private val presenter = MostRatedPresenter(requestInterface, Schedulers.computation(),
-            Schedulers.computation())
+    private val presenter = MostRatedPresenter(requestInterface, Schedulers.trampoline(),
+            Schedulers.trampoline())
 
     @Test
     fun `view should be assigned after attached`() {
@@ -37,13 +33,13 @@ class MostRatedPresenterTest{
 
     @Test
     fun `should return a movie list when get top rated movie`() {
-        whenever(requestInterface.getMostRatedMovies(AppConstant.API_KEY))
+        whenever(requestInterface.getMostRatedMovies())
                 .thenReturn(Observable.just(GetMovieListReponse(1,
                         10,
                         1,
                         ArrayList())))
 
-        val response = requestInterface.getMostRatedMovies(AppConstant.API_KEY)
+        val response = requestInterface.getMostRatedMovies()
         val testObservable = TestObserver.create<GetMovieListReponse>()
         response.subscribe(testObservable)
         testObservable.assertComplete()

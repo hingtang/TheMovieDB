@@ -90,7 +90,7 @@ class MostRatedFragmentTest {
 
         fun showErrorDialog() {
             runOnUIThread {
-                fragment.showErrorDialog()
+                fragment.showErrorDialog(ERROR_MESSAGE)
             }
 
             Espresso.onView(ViewMatchers.withText(R.string.error)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
@@ -118,6 +118,10 @@ class MostRatedFragmentTest {
                 runnable()
             }
         }
+    }
+
+    companion object {
+        private const val ERROR_MESSAGE = "Error"
     }
 
 }

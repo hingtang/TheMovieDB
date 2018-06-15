@@ -25,4 +25,3 @@ class MockNetworkModule {
     fun provideRequestInterface(retrofit: Retrofit): RequestInterface = retrofit.create(RequestInterface::class.java)
 
 }
-

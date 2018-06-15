@@ -49,4 +49,3 @@ class MoviesDBGateway : MoviesGateway {
         }
     }
 }
-

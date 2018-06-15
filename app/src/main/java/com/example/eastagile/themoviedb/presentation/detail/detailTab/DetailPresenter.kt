@@ -21,7 +21,7 @@ class DetailPresenter(private val requestInterface: RequestInterface,
     lateinit var view: DetailContract.View
 
     override fun getTrailerList(movieId: Int) {
-        compositeDisposable.add(requestInterface.getTrailers(movieId, AppConstant.API_KEY)
+        compositeDisposable.add(requestInterface.getTrailers(movieId)
                 .subscribeOn(ioScheduler)
                 .observeOn(uiScheduler)
                 .subscribe({ response ->

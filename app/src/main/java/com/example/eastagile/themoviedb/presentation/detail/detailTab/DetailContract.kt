@@ -39,3 +39,4 @@ interface DetailContract{
     }
 
 }
+

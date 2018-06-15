@@ -33,4 +33,10 @@ class HomeActivityTest{
         onView(withId(R.id.tabLayout)).check(matches(isDisplayed()))
         onView(withId(R.id.viewPager)).check(matches(isDisplayed()))
     }
+
+    @Test
+    fun should_return_3_in_item_count() {
+        val adapter = HomePagerAdapter(activityRule.activity.supportFragmentManager)
+        assertTrue(adapter.count==3)
+    }
 }

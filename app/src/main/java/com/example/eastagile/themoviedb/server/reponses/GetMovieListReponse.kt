@@ -1,6 +1,5 @@
 package com.example.eastagile.themoviedb.server.reponses
 
-import android.arch.persistence.room.ColumnInfo
 import com.example.eastagile.themoviedb.data.Movie
 
 data class GetMovieListReponse (

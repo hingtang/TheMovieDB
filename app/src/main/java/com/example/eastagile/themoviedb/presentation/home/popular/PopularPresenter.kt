@@ -19,7 +19,7 @@ class PopularPresenter(private val requestInterface: RequestInterface,
     lateinit var view: BaseListContract.View
 
     override fun getMovieList() {
-        compositeDisposable.add(requestInterface.getPopularMovies(AppConstant.API_KEY)
+        compositeDisposable.add(requestInterface.getPopularMovies()
                 .subscribeOn(ioScheduler)
                 .observeOn(uiScheduler)
                 .subscribe({ response ->

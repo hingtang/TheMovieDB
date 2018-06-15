@@ -26,7 +26,7 @@ class MovieListAdapterTest{
     @Before
     @UiThreadTest
     fun setUp(){
-        adapter = MovieListAdapter(ArrayList(), activityRule.activity)
+        adapter = MovieListAdapter(ArrayList(), ArrayList(), activityRule.activity)
         recyclerView = RecyclerView(activityRule.activity)
         recyclerView.id = R.id.recyclerView
         activityRule.activity.setContentView(recyclerView)

@@ -30,3 +30,4 @@ abstract class MovieDatabase : RoomDatabase() {
                         .build()
     }
 }
+
