@@ -1,0 +1,21 @@
+package com.example.eastagile.themoviedb.server
+
+import com.example.eastagile.themoviedb.server.reponses.GetMovieListReponse
+import com.example.eastagile.themoviedb.server.reponses.GetTrailerListResponse
+import io.reactivex.Observable
+import retrofit2.http.GET
+import retrofit2.http.Path
+import retrofit2.http.Query
+
+interface RequestInterface {
+
+    @GET("discover/movie")
+    fun getPopularMovies(@Query("api_key") apiKey: String): Observable<GetMovieListReponse>
+
+    @GET("movie/top_rated")
+    fun getMostRatedMovies(@Query("api_key") apiKey: String): Observable<GetMovieListReponse>
+
+    @GET("movie/{id}/videos")
+    fun getTrailers(@Path("id") id: Int, @Query("api_key") apiKey: String): Observable<GetTrailerListResponse>
+
+}

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content" android:orientation="vertical"
+    android:layout_margin="@dimen/margin_8">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/trailer_item_height">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/imgvTrailder"/>
+        
+        <ImageView
+            android:layout_width="@dimen/medium_icon_size"
+            android:layout_height="@dimen/medium_icon_size"
+            android:src="@drawable/ic_play"
+            android:layout_gravity="center"/>
+
+    </FrameLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvTrailerName"
+        android:lines="2"/>
+
+</LinearLayout>
