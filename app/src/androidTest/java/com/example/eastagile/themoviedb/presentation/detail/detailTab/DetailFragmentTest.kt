@@ -20,7 +20,7 @@ class DetailFragmentTest {
     @get:Rule
     val activityRule = ActivityTestRule<TestFragmentActivity>(TestFragmentActivity::class.java)
 
-    lateinit var presenter: PopularPresenter
+    lateinit var presenter: DetailPresenter
 
     private val screen = DetailScreen()
 
@@ -73,7 +73,7 @@ class DetailFragmentTest {
             activityRule.activity.setFragment(fragment)
             waitForFragmentAttach()
 
-            presenter = fragment.presenter as PopularPresenter
+            presenter = fragment.presenter as DetailPresenter
         }
 
         fun showProgressBar() {
