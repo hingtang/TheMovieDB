@@ -1,4 +1,4 @@
-package com.example.eastagile.themoviedb.presentation.home.mostRated
+package com.example.eastagile.themoviedb.presentation.home.mostrated
 
 import android.os.Bundle
 import android.support.annotation.VisibleForTesting

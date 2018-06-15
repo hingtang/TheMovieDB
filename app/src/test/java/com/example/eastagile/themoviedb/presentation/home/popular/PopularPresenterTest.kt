@@ -2,7 +2,7 @@ package com.example.eastagile.themoviedb.presentation.home.popular
 
 import com.example.eastagile.themoviedb.presentation.home.base.BaseListContract
 import com.example.eastagile.themoviedb.server.RequestInterface
-import com.example.eastagile.themoviedb.server.reponses.GetMovieListReponse
+import com.example.eastagile.themoviedb.server.reponses.GetMovieListResponse
 import com.nhaarman.mockito_kotlin.mock
 import com.nhaarman.mockito_kotlin.whenever
 import io.reactivex.Observable
@@ -35,13 +35,13 @@ class PopularPresenterTest{
     @Test
     fun `should return a movie list when get popular movie`() {
         whenever(requestInterface.getPopularMovies())
-                .thenReturn(Observable.just(GetMovieListReponse(1,
+                .thenReturn(Observable.just(GetMovieListResponse(1,
                         10,
                         1,
                         ArrayList())))
 
         val response = requestInterface.getPopularMovies()
-        val testObservable = TestObserver.create<GetMovieListReponse>()
+        val testObservable = TestObserver.create<GetMovieListResponse>()
         response.subscribe(testObservable)
         testObservable.assertComplete()
         testObservable.assertSubscribed()

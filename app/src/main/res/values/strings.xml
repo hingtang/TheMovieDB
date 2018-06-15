@@ -10,6 +10,7 @@
 
     <string name="profile">profile</string>
     <string name="trailers">Trailers</string>
+    <string name="read_more">Read more</string>
 
     <string name="error">Error</string>
     <string name="error_message">Load movies data failed</string>

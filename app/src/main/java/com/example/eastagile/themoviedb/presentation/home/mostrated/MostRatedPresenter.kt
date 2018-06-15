@@ -1,9 +1,7 @@
-package com.example.eastagile.themoviedb.presentation.home.mostRated
+package com.example.eastagile.themoviedb.presentation.home.mostrated
 
-import com.example.eastagile.themoviedb.data.MoviesGateway
 import com.example.eastagile.themoviedb.presentation.home.base.BaseListContract
 import com.example.eastagile.themoviedb.server.RequestInterface
-import com.example.eastagile.themoviedb.utils.AppConstant
 import io.reactivex.Scheduler
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable

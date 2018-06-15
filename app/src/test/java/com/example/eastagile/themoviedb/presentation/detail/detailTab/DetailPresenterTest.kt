@@ -39,7 +39,7 @@ class DetailPresenterTest{
     }
 
     @Test
-    fun `should return a trailer list when get popular movie`() {
+    fun `should return a trailer list when get movie trailer`() {
         whenever(requestInterface.getTrailers(MOVIE_ID))
                 .thenReturn(Observable.just(GetTrailerListResponse(1,
                         ArrayList())))

@@ -4,10 +4,12 @@ import com.example.eastagile.themoviedb.data.MoviesDBGateway
 import com.example.eastagile.themoviedb.data.MoviesGateway
 import com.example.eastagile.themoviedb.presentation.detail.detailTab.DetailContract
 import com.example.eastagile.themoviedb.presentation.detail.detailTab.DetailPresenter
+import com.example.eastagile.themoviedb.presentation.detail.reviewTab.ReviewContract
+import com.example.eastagile.themoviedb.presentation.detail.reviewTab.ReviewPresenter
 import com.example.eastagile.themoviedb.presentation.home.HomeContract
 import com.example.eastagile.themoviedb.presentation.home.HomePresenter
 import com.example.eastagile.themoviedb.presentation.home.base.BaseListContract
-import com.example.eastagile.themoviedb.presentation.home.mostRated.MostRatedPresenter
+import com.example.eastagile.themoviedb.presentation.home.mostrated.MostRatedPresenter
 import com.example.eastagile.themoviedb.presentation.home.popular.PopularPresenter
 import com.example.eastagile.themoviedb.server.RequestInterface
 import dagger.Module
@@ -46,6 +48,12 @@ class AppModule {
     @Named("HomePresenter")
     fun provideHomePresenter(moviesGateway: MoviesGateway)
             : HomeContract.Presenter = HomePresenter(moviesGateway)
+
+    @Singleton
+    @Provides
+    @Named("ReviewPresenter")
+    fun provideReviewPresenter(requestInterface: RequestInterface)
+            : ReviewContract.Presenter = ReviewPresenter(requestInterface)
 
 
 }

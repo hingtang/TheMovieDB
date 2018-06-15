@@ -23,7 +23,7 @@ class DetailPagerAdapter(fragmentManager: FragmentManager) : FragmentPagerAdapte
     override fun getItem(position: Int): Fragment {
         when (position) {
             0 -> return DetailFragment.newInstance(movie!!)
-            1 -> return ReviewFragment()
+            1 -> return ReviewFragment.newInstance(movie!!.id)
         }
         return PopularFragment()
     }

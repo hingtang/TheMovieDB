@@ -5,7 +5,7 @@ import com.example.eastagile.themoviedb.presentation.detail.detailTab.DetailFrag
 import com.example.eastagile.themoviedb.presentation.detail.reviewTab.ReviewFragment
 import com.example.eastagile.themoviedb.presentation.home.HomeActivity
 import com.example.eastagile.themoviedb.presentation.home.base.BaseListFragment
-import com.example.eastagile.themoviedb.presentation.home.mostRated.MostRatedFragment
+import com.example.eastagile.themoviedb.presentation.home.mostrated.MostRatedFragment
 import com.example.eastagile.themoviedb.presentation.home.popular.PopularFragment
 import com.example.eastagile.themoviedb.test.TestFragmentActivity
 import dagger.Module

@@ -1,4 +1,4 @@
-package com.example.eastagile.themoviedb.presentation.home.mostRated
+package com.example.eastagile.themoviedb.presentation.home.mostrated
 
 import android.content.Intent
 import android.support.test.espresso.Espresso

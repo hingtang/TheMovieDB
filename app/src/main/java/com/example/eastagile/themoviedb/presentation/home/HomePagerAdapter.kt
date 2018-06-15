@@ -3,7 +3,7 @@ package com.example.eastagile.themoviedb.presentation.home
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
-import com.example.eastagile.themoviedb.presentation.home.mostRated.MostRatedFragment
+import com.example.eastagile.themoviedb.presentation.home.mostrated.MostRatedFragment
 import com.example.eastagile.themoviedb.presentation.home.myfavourite.MyFavouriteFragment
 import com.example.eastagile.themoviedb.presentation.home.popular.PopularFragment
 

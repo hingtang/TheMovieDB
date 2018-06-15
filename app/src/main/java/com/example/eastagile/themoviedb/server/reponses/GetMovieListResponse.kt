@@ -2,7 +2,7 @@ package com.example.eastagile.themoviedb.server.reponses
 
 import com.example.eastagile.themoviedb.data.Movie
 
-data class GetMovieListReponse (
+data class GetMovieListResponse (
 
         val page: Int,
 

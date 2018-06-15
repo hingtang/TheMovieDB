@@ -1,4 +1,4 @@
-package com.example.eastagile.themoviedb.presentation.detail.detailTab
+package com.example.eastagile.themoviedb.presentation.detail.reviewTab
 
 import android.content.Intent
 import android.support.test.espresso.Espresso
@@ -6,23 +6,20 @@ import android.support.test.espresso.assertion.ViewAssertions
 import android.support.test.espresso.matcher.ViewMatchers
 import android.support.test.rule.ActivityTestRule
 import com.example.eastagile.themoviedb.R
-import com.example.eastagile.themoviedb.data.Movie
-import com.example.eastagile.themoviedb.presentation.home.popular.PopularFragmentTest
-import com.example.eastagile.themoviedb.presentation.home.popular.PopularPresenter
 import com.example.eastagile.themoviedb.test.TestFragmentActivity
 import com.example.eastagile.themoviedb.utils.IdlingResourceViewHelper
 import org.hamcrest.Matchers
 import org.junit.Rule
 import org.junit.Test
 
-class DetailFragmentTest {
+class ReviewFragmentTest{
 
     @get:Rule
     val activityRule = ActivityTestRule<TestFragmentActivity>(TestFragmentActivity::class.java)
 
-    lateinit var presenter: DetailPresenter
+    lateinit var presenter: ReviewPresenter
 
-    private val screen = DetailScreen()
+    private val screen = ReviewScreen()
 
     @Test
     fun should_show_progress_bar_and_hide_recycler_view_when_getting_movie_data() {
@@ -64,16 +61,16 @@ class DetailFragmentTest {
         }
     }
 
-    inner class DetailScreen {
-        private lateinit var fragment: DetailFragment
+    inner class ReviewScreen {
+        private lateinit var fragment: ReviewFragment
 
         fun start() {
             activityRule.launchActivity(Intent())
-            fragment = DetailFragment.newInstance(Movie(MOVIE_ID, title = MOVIE_TITLE)) as DetailFragment
+            fragment = ReviewFragment.newInstance(MOVIE_ID) as ReviewFragment
             activityRule.activity.setFragment(fragment)
             waitForFragmentAttach()
 
-            presenter = fragment.presenter as DetailPresenter
+            presenter = fragment.presenter as ReviewPresenter
         }
 
         fun showProgressBar() {
@@ -137,7 +134,6 @@ class DetailFragmentTest {
 
     companion object {
         private const val MOVIE_ID = 1
-        private const val MOVIE_TITLE = "Title"
         private const val ERROR_MESSAGE = "Error"
     }
 }
